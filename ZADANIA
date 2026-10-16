@@ -1,1 +1,30 @@
+Zadanie 1: Sprawdź rozszerzenie
 
+Polecenie: Uzupełnij funkcję czy_dozwolony(nazwa). Ma zwracać True tylko dla plików kończących się na .png, .jpg lub .pdf (wielkość liter nie ma znaczenia).
+
+def czy_dozwolony(nazwa):
+    ...
+
+Przykłady: czy_dozwolony("a.png") → True, czy_dozwolony("A.PDF") → True, czy_dozwolony("shell.php") → False, czy_dozwolony("plik") → False.
+
+---------------------------------------------------
+
+Zadanie 2: Losowa nazwa pliku
+
+Polecenie: Napisz funkcję losowa_nazwa(rozszerzenie), która zwraca losową nazwę pliku z podanym rozszerzeniem (użyj modułu uuid). Dlaczego nie zapisujemy plików pod oryginalną nazwą od użytkownika? Odpowiedz w komentarzu.
+
+Przykład: losowa_nazwa(".png") → "3f2a9c...e1.png".
+
+---------------------------------------------------
+
+Zadanie 3: Sprawdź, czy plik jest tym, za co się podaje
+
+Polecenie: Napisz funkcję czy_prawdziwy_typ(dane, rozszerzenie), która sprawdza początek pliku (sygnaturę):
+
+PNG zaczyna się od b"\x89PNG"
+JPG zaczyna się od b"\xff\xd8\xff"
+PDF zaczyna się od b"%PDF"
+
+Dla nieznanego rozszerzenia zwróć False.
+
+Przykłady: czy_prawdziwy_typ(b"\x89PNG....", ".png") → True, czy_prawdziwy_typ(b"%PDF-1.7", ".png") → False (PDF udający PNG).
