@@ -1,1 +1,27 @@
+Zadanie 1: Sprawdź rozszerzenie
 
+DOZWOLONE = (".png", ".jpg", ".pdf")
+
+def czy_dozwolony(nazwa):
+    return nazwa.lower().endswith(DOZWOLONE)
+
+-------------------------------------------
+
+Zadanie 2: Losowa nazwa pliku
+
+import uuid
+
+def losowa_nazwa(rozszerzenie):
+    # Oryginalna nazwa moze zawierac "../" (path traversal), podwojne
+    # rozszerzenie (foto.php.jpg) albo nadpisac istniejacy plik.
+    return uuid.uuid4().hex + rozszerzenie.lower()
+
+-------------------------------------------
+
+Zadanie 3: Sprawdź, czy plik jest tym, za co się podaje
+
+SYGNATURY = {".png": b"\x89PNG", ".jpg": b"\xff\xd8\xff", ".pdf": b"%PDF"}
+
+def czy_prawdziwy_typ(dane, rozszerzenie):
+    sygnatura = SYGNATURY.get(rozszerzenie.lower())
+    return sygnatura is not None and dane.startswith(sygnatura)
